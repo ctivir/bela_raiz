@@ -238,4 +238,5 @@ yarn-error.log*
 mcp/logs/
 mcp/cache/
 
-.github
+#github
+.github/
