@@ -15,3 +15,20 @@ Bela Raiz is a hybrid platform integrating:
 ## Quick Start
 ```bash
 docker-compose up --build
+
+## Authentication API
+
+The backend uses DRF token authentication. Endpoints live under `/api/accounts/`:
+
+- `POST /api/accounts/register/` – fields: `username`, `email`, `password`, `password2`, `first_name`, `last_name`, `phone_number`, `role`.
+  - returns a token on success.
+- `POST /api/accounts/login/` – provide `username` and `password` to receive a token.
+- `GET/PUT /api/accounts/me/` – retrieve or update your authenticated profile (requires `Authorization: Token <key>` header).
+
+Tokens are sent in requests like:
+
+```
+Authorization: Token bd305975a31fd0c0b745555dd0b9d9280e12f151
+```
+
+User roles (`client`, `salon`, `reseller`, `courier`) are chosen at registration and control access throughout the API.

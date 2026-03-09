@@ -5,11 +5,19 @@ from rest_framework.decorators import action
 from rest_framework.viewsets import ModelViewSet
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.filters import OrderingFilter
+from django.shortcuts import render
+
 from .models import SalonService, Booking
 from .serializer import (
     BookingSerializer, BookingCreateSerializer,
     SalonServiceSerializer
 )
+
+
+def services_page(request):
+    """Render static page listing active salon services."""
+    services = SalonService.objects.filter(is_active=True)
+    return render(request, 'salon/services.html', {'services': services})
 
 
 class BookingViewSet(ModelViewSet):
