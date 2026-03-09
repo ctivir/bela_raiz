@@ -237,3 +237,5 @@ yarn-error.log*
 # MCP (Model Context Protocol)
 mcp/logs/
 mcp/cache/
+
+.github
