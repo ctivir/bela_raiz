@@ -42,11 +42,11 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'django_filters',
-    'accounts',
-    'salon',
-    'reseller',
-    'payments',
-    'delivery'
+    'apps.accounts',
+    'apps.salon',
+    'apps.reseller',
+    'apps.payments',
+    'apps.delivery'
 ]
 
 # Django REST Framework configuration

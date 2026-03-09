@@ -240,3 +240,11 @@ mcp/cache/
 
 #github
 .github/
+
+# Local MCP server directory
+mcp_server/
+
+# Personal environment and build files
+.env/
+pom.xml
+*.pom

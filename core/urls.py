@@ -17,14 +17,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from salon.views import BookingViewSet, SalonServiceListView, services_page
+from apps.salon.views import BookingViewSet, SalonServiceListView, services_page
 
 router = DefaultRouter()
 router.register(r'api/salon/bookings', BookingViewSet, basename='booking')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/accounts/', include('accounts.urls')),
+    path('api/accounts/', include('apps.accounts.urls')),
     path('salon/services/', services_page, name='services-page'),
     path('', include(router.urls)),
     path('api/salon/services/', SalonServiceListView.as_view(), name='salon-services'),
