@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Salon Booking</title>
+  <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.2/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 p-6">
+
+  <div class="max-w-2xl mx-auto bg-white shadow-md rounded p-6">
+    <h1 class="text-2xl font-bold mb-4">Available Services</h1>
+
+    <!-- Example service card -->
+    <div class="border rounded p-4 mb-4">
+      <h2 class="text-lg font-semibold">Haircut</h2>
+      <p class="text-gray-600">Basic haircut and styling</p>
+      <p class="text-gray-800 font-bold">Price: 1200 MT</p>
+      <button 
+        class="mt-2 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+        hx-post="/api/salon/book/"
+        hx-trigger="click"
+        hx-vals='{"service_id":1, "scheduled_for":"2026-03-10T14:00:00"}'
+        hx-target="#booking-result"
+        hx-swap="innerHTML">
+        Book Now
+      </button>
+    </div>
+
+    <!-- Result area -->
+    <div id="booking-result" class="mt-4 text-green-600 font-medium"></div>
+  </div>
+
+</body>
+</html>
